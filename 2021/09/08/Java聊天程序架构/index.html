@@ -6,29 +6,20 @@
   
   <title>Java聊天程序架构 | Pigman</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="整体架构图： 核心功能流程图：客户端程序结构： 登录： 发送动作： 消息监听： 连接监听： 好友添加申请： 好友删除： 服务端群组程序结构： 服务端群组监听线程： 服务端群组转发线程： ​">
+  <meta name="description" content="整体架构图： 核心功能流程图：客户端程序结构： 登录：发送动作：消息监听：连接监听：好友添加申请：好友删除：服务端群组程序结构：服务端群组监听线程：服务端群组转发线程：​">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java聊天程序架构">
 <meta property="og:url" content="https://pigman-xk.github.io/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/index.html">
 <meta property="og:site_name" content="Pigman">
-<meta property="og:description" content="整体架构图： 核心功能流程图：客户端程序结构： 登录： 发送动作： 消息监听： 连接监听： 好友添加申请： 好友删除： 服务端群组程序结构： 服务端群组监听线程： 服务端群组转发线程： ​">
+<meta property="og:description" content="整体架构图： 核心功能流程图：客户端程序结构： 登录：发送动作：消息监听：连接监听：好友添加申请：好友删除：服务端群组程序结构：服务端群组监听线程：服务端群组转发线程：​">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/JavaCommunication.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/User.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/Login.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/Send.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/MessageListen.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/ConnectListen.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/FriendAdd.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/FriendDelete.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/Server.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/ServerListen.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/ServerSend.png">
+<meta property="og:image" content="https://pigman-xk.github.io/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/JavaCommunication.jpg">
+<meta property="og:image" content="https://pigman-xk.github.io/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/User.png">
 <meta property="article:published_time" content="2021-09-07T16:33:34.845Z">
-<meta property="article:modified_time" content="2021-09-07T18:41:11.304Z">
+<meta property="article:modified_time" content="2021-09-07T18:48:39.103Z">
 <meta property="article:author" content="Pigman">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/JavaCommunication.jpg">
+<meta name="twitter:image" content="https://pigman-xk.github.io/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/JavaCommunication.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Pigman" type="application/atom+xml">
   
@@ -107,18 +98,9 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="整体架构图："><a href="#整体架构图：" class="headerlink" title="整体架构图："></a>整体架构图：</h2><p><img src="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/JavaCommunication.jpg" alt="JavaCommunication"></p>
-<h2 id="核心功能流程图："><a href="#核心功能流程图：" class="headerlink" title="核心功能流程图："></a>核心功能流程图：</h2><h3 id="客户端程序结构："><a href="#客户端程序结构：" class="headerlink" title="客户端程序结构："></a>客户端程序结构：</h3><p><img src="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/User.png" alt="User"></p>
-<h3 id="登录："><a href="#登录：" class="headerlink" title="登录："></a>登录：</h3><p><img src="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/Login.png" alt="Login"></p>
-<h3 id="发送动作："><a href="#发送动作：" class="headerlink" title="发送动作："></a>发送动作：</h3><p><img src="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/Send.png" alt="Send"></p>
-<h3 id="消息监听："><a href="#消息监听：" class="headerlink" title="消息监听："></a>消息监听：</h3><p><img src="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/MessageListen.png" alt="MessageListen"></p>
-<h3 id="连接监听："><a href="#连接监听：" class="headerlink" title="连接监听："></a>连接监听：</h3><p><img src="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/ConnectListen.png" alt="ConnectListen"></p>
-<h3 id="好友添加申请："><a href="#好友添加申请：" class="headerlink" title="好友添加申请："></a>好友添加申请：</h3><p><img src="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/FriendAdd.png" alt="FriendAdd"></p>
-<h3 id="好友删除："><a href="#好友删除：" class="headerlink" title="好友删除："></a>好友删除：</h3><p><img src="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/FriendDelete.png" alt="FriendDelete"></p>
-<h3 id="服务端群组程序结构："><a href="#服务端群组程序结构：" class="headerlink" title="服务端群组程序结构："></a>服务端群组程序结构：</h3><p><img src="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/Server.png" alt="Server"></p>
-<h3 id="服务端群组监听线程："><a href="#服务端群组监听线程：" class="headerlink" title="服务端群组监听线程："></a>服务端群组监听线程：</h3><p><img src="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/ServerListen.png" alt="ServerListen"></p>
-<h3 id="服务端群组转发线程："><a href="#服务端群组转发线程：" class="headerlink" title="服务端群组转发线程："></a>服务端群组转发线程：</h3><p><img src="https://raw.githubusercontent.com/pigman-xk/pigman-xk.github.io/master/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/ServerSend.png" alt="ServerSend"></p>
-<p>​    </p>
+        <h2 id="整体架构图："><a href="#整体架构图：" class="headerlink" title="整体架构图："></a>整体架构图：</h2><p><img src="JavaCommunication.jpg"></p>
+<h2 id="核心功能流程图："><a href="#核心功能流程图：" class="headerlink" title="核心功能流程图："></a>核心功能流程图：</h2><h3 id="客户端程序结构："><a href="#客户端程序结构：" class="headerlink" title="客户端程序结构："></a>客户端程序结构：</h3><p><img src="User.png"></p>
+<h3 id="登录："><a href="#登录：" class="headerlink" title="登录："></a>登录：</h3><h3 id="发送动作："><a href="#发送动作：" class="headerlink" title="发送动作："></a>发送动作：</h3><h3 id="消息监听："><a href="#消息监听：" class="headerlink" title="消息监听："></a>消息监听：</h3><h3 id="连接监听："><a href="#连接监听：" class="headerlink" title="连接监听："></a>连接监听：</h3><h3 id="好友添加申请："><a href="#好友添加申请：" class="headerlink" title="好友添加申请："></a>好友添加申请：</h3><h3 id="好友删除："><a href="#好友删除：" class="headerlink" title="好友删除："></a>好友删除：</h3><h3 id="服务端群组程序结构："><a href="#服务端群组程序结构：" class="headerlink" title="服务端群组程序结构："></a>服务端群组程序结构：</h3><h3 id="服务端群组监听线程："><a href="#服务端群组监听线程：" class="headerlink" title="服务端群组监听线程："></a>服务端群组监听线程：</h3><h3 id="服务端群组转发线程："><a href="#服务端群组转发线程：" class="headerlink" title="服务端群组转发线程："></a>服务端群组转发线程：</h3><p>​    </p>
 
       
     </div>
