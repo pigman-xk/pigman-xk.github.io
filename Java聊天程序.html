@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Java聊天程序 | Pigamn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、我想做什么：实现技术：Java.control+layout类+Socket网络编程+多线程（线程池、IO多路复用）+SQL 做的是一个简单的聊天程序，能构成社交网络。这就意味着我的程序首先能进行单人聊天，但这还不够，这仅仅意味着这个社交网络中仅有两个人或者是多对两个人构成的社交网络，我们需要把这些用户连接起来，此时我们就需要实现好友添加的功能，同时也意味着要实现好友删除的功能。当社交网络的用">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Java聊天程序">
+<meta property="og:url" content="https://pigman-xk.github.io/Pigman/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F.html">
+<meta property="og:site_name" content="Pigamn">
+<meta property="og:description" content="一、我想做什么：实现技术：Java.control+layout类+Socket网络编程+多线程（线程池、IO多路复用）+SQL 做的是一个简单的聊天程序，能构成社交网络。这就意味着我的程序首先能进行单人聊天，但这还不够，这仅仅意味着这个社交网络中仅有两个人或者是多对两个人构成的社交网络，我们需要把这些用户连接起来，此时我们就需要实现好友添加的功能，同时也意味着要实现好友删除的功能。当社交网络的用">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-06T13:29:29.000Z">
+<meta property="article:modified_time" content="2021-09-06T13:38:17.188Z">
+<meta property="article:author" content="Pigman">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/Pigman/atom.xml" title="Pigamn" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/Pigman/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/Pigman/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/Pigman/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Pigman/" id="logo">Pigamn</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Pigman/">Home</a>
+        
+          <a class="main-nav-link" href="/Pigman/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Pigman/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://pigman-xk.github.io/Pigman"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Pigman/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-06T13:29:29.000Z" itemprop="datePublished">2021-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Java聊天程序
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="一、我想做什么："><a href="#一、我想做什么：" class="headerlink" title="一、我想做什么："></a><strong>一、我想做什么：</strong></h3><p>实现技术：Java.control+layout类+Socket网络编程+多线程（线程池、IO多路复用）+SQL</p>
+<p>做的是一个简单的聊天程序，能构成社交网络。这就意味着我的程序首先能进行单人聊天，但这还不够，这仅仅意味着这个社交网络中仅有两个人或者是多对两个人构成的社交网络，我们需要把这些用户连接起来，此时我们就需要实现好友添加的功能，同时也意味着要实现好友删除的功能。当社交网络的用户连接起来后，意味着多人聊天成为可能也存在需要。那么为实现上述的功能我们必须开始考虑实现这些功能所要求的子问题，主要分为以下几类：</p>
+<p> 登录、退出问题，提醒问题，连接问题，添加删除前后的接收与更新，用户状态，由用户状态所导致的连锁子问题。</p>
+<p> 还有一些服务于聊天程序的其他模块，例如登录、注册、列表可视化等。</p>
+<p>那么倘若社交网络中的用户不断增多以至于性能不足，其优化问题又该如何解决？</p>
+<h3 id="二、怎么做："><a href="#二、怎么做：" class="headerlink" title="二、怎么做："></a><strong>二、怎么做：</strong></h3><p>实现技术：Java.control+layout类+Socket网络编程+多线程（线程池）+SQL</p>
+<p>如何获取IP地址？</p>
+<p>首先单人聊天我们基于IP地址进行连接，但是聊天双方并不知道对方的IP地址。那么我们需要服务器来作为中继，传递双方的通信地址和端口。</p>
+<p>如何连接？</p>
+<p> 既然可以从主机获取用户的IP地址，那么用户在上线时便可以主动向服务器请求用户的IP然后使用Socket连接。</p>
+<p>如何添加删除好友？</p>
+<p>用户在注册时会将用户名、密码等主要信息上传到主机数据库，添加好友时将依据数据库中的用户表信息来寻找特定用户，执行添加，删除操作。</p>
+<p>如何多人聊天？</p>
+<p> 多人聊天尚未考虑多实现多个群组，而仅仅是服务器将将构建一个线程池，对于每个上线用户将主动连接到该服务器，创建新线程保存对应用户的用户名， 设置编号，并监听；服务器将用户套接字加入到一个ArrayList中。当用户发送信息时，确认它的编号，遍历套接字数组，对该数组内所有的用户发送消 息。</p>
+<p>具体实现：</p>
+<p> 当客户端登录时，将会从数据库读取它的好友信息，并判断该好友是否在线，在线则连接，否则不连接。同时将连接它所在聊天室的服务器，加入多人聊天 室。使用轮询的方式</p>
+<h3 id="四、优化方向：负载均衡-IO多路复用-redis缓存-内存泄漏"><a href="#四、优化方向：负载均衡-IO多路复用-redis缓存-内存泄漏" class="headerlink" title="四、优化方向：负载均衡+IO多路复用+redis缓存+内存泄漏"></a><strong>四、优化方向：负载均衡+IO多路复用+redis缓存+内存泄漏</strong></h3><h5 id="负载均衡：（NAT模式、DR路由模式）"><a href="#负载均衡：（NAT模式、DR路由模式）" class="headerlink" title="负载均衡：（NAT模式、DR路由模式）"></a><strong>负载均衡：（NAT模式、DR路由模式）</strong></h5><p> 1.负载均衡总体思路是一个代理服务器，旗下有多个私网服务器。</p>
+<p> 2.客户端根据DNS寻址得到的只是代理服务器的地址VIP（公网）</p>
+<p> 3.客户端根据获得的VIP建立TCP连接，发送TCP数据包到VIP。</p>
+<p> 4.代理服务器接收到TCP数据包会检查会话表中是否有NAT（网路地址转换） 记录，有则直接转发对应的RIP（真实IP）。无则启动负载均衡算法，为此 次 TCP连接分配服务器并把分配好RIP的TCP四元组（目的IP、源IP、目的 端口、源端口）记录到代理服务器会话表中。</p>
+<p> 5.此后每次传输TCP数据包都会根据会话表中的记录确定要发送的RIP。</p>
+<p> 6.直到客户端发送reset或close的TCP请求才会将会话记录从会话表删除。</p>
+<p>负载均衡要考虑的问题：</p>
+<h5 id="为什么出现负载均衡？"><a href="#为什么出现负载均衡？" class="headerlink" title="为什么出现负载均衡？"></a><strong>为什么出现负载均衡？</strong></h5><p> 当越来越多的用户访问服务器时，若只是单一提高服务器的硬件资源成本 极高。故采用负载均衡策略，将用户分发到不同服务器。</p>
+<h6 id="如何实现负载均衡？"><a href="#如何实现负载均衡？" class="headerlink" title="如何实现负载均衡？"></a><strong>如何实现负载均衡？</strong></h6><p>第一种方法：申请多个公网IP，在DNS寻址时设置负载均衡策略。</p>
+<p> 但有两个问题：1.极大的浪费公网IP</p>
+<p> 2.DNS缓存问题</p>
+<p> 其中问题2是致命问题，我们可以知道DNS是从顶层寻址到底层（根-&gt;顶级-&gt;权威）。而寻址完成后，DNS分别会在浏览器、操作系统、路由器缓存、ISP（运营商）处留下缓存，缓存存留时间不一。而一旦某台服务器宕机，而客户端相关的DNS缓存还没有清除，那么客户端会不断发送请求，而宕机了的服务器 无法返回响应。</p>
+<p>第二种方法（NAT模式）：设置代理服务器，由代理服务器实现负载均衡算法，负责转发数据包和分配服务器。</p>
+<p>​     此种方法也仍然有一个问题，随着并发数越来越高，负责数据包的进出，代理服务器越来越扛不住了。</p>
+<p>​     优化拓展模式：FullNAT模式</p>
+<p>​     相比于NAT只负责修改LVS只负责修改目标IP转发数据包，FullNAT模式，除了修改目标IP，还修改源IP为本台LVS的IP地址，这样，在RS处理完数据后，将</p>
+<p>第三种方法（DR直接路由模式）：</p>
+<p>​    代理服务器只负责转发请求包，响应数据由真实服务器发送。（LVS一般是双网卡）  这样要保证TCP四元组不能改变（确保客户端始终能找到RS），即RS也必须有和VS相同的VIP，但同时也要确保VS和RS之间的IP不同，故RS和VS都有两个 IP，一个VIP一个RIP。这里涉及到网卡问题，一个网卡可以配置多个IP，有两种网卡，一种是物理网卡，一种是虚拟网卡。</p>
+<p>​    那么该如何设定IP的网卡分配呢？RS将VIP设置在虚拟网卡上，而LVS将VIP设置在物理网卡的子IP上，而包括RS,LVS的物理网卡的主IP都设置RIP。</p>
+<p>​    为何这样做？因为在客户端发送数据包过来时，经过网关，网关需要获得目标设备的MAC地址，先进行ARP广播，我们规定RS不能响应目的IP为虚拟网卡绑定的VIP请求，即忽略目的IP为虚拟网卡上VIP的请求，那么此时只有LVS接收到ARP广播，网关得到目标IP的MAC地址，然后将数据包发送给LVS，LVS根据负载均衡策略将请求通过各RS的物理网卡上的RIP，发送ARP广播拿到不同RS的MAC地址，然后将请求数据包分发到不同的RS上，各RS根据接收的请求进行处理然后使用虚拟网卡lo的VIP发送。但此时还有一个问题，路由器只知道LVS的MAC地址，倘若RS采用虚拟网卡VIP发送数据包，要先通过ARP广播获得网关的MAC地址，由于此时路由器中已经缓存了LVS的VIP和MAC地址，RS若采用虚拟网卡的VIP来发送ARP广播将会和LVS的MAC地址冲突。故RS发送ARP广播获得网关地址必须使用物理网卡RIP来发送，此时网关ARP缓存表储存的记录为：RS虚拟网卡RIP-&gt;RS的MAC地址，此时使用TCP四元组发送给网关：源IP（RS虚拟网卡VIP）+目标IP（客户端）+源端口+端口，源MAC地址RS的MAC地址，目标MAC：网关MAC地址。当客户端返回数据时，根据其TCP四元组，路由会从ARP缓存表中查询该目标IP对应的MAC地址，即LVS的MAC地址。</p>
+<p>​    关于RS发送响应数据包的问题：响应包的源MAC地址，在经过网关后会修改成网关的MAC地址，当客户端返回数据时，会根据目标IP地址查找网关路由表发送到指定设备，此过程中源IP和目标IP不会改变，根据目标IP寻找MAC地址。</p>
+<p>如何设置规定：</p>
+<p><code>net.ipv4.conf.all.arp_ignore=1</code></p>
+<p> <code>net.ipv4.conf.lo.arp_ingnore=1</code></p>
+<p>如何设置使用虚拟网卡发送数据包：</p>
+<p><code>route add -host targetIp dev lo:0</code></p>
+<p>如何设置RS使用物理网卡RIP发送ARP广播：</p>
+<p><code>net.ipv4.conf.all.arp_announce=2</code></p>
+<p> <code>net.ipv4.conf.lo.arp_announce=2</code></p>
+<p>表示忽略数据包的源IP地址，选择该发送网卡上最合适的本地地址作为ARP 请求的源IP地址</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://pigman-xk.github.io/Pigman/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F.html" data-id="ckt8ok6ed00000sutdxxjb4lf" data-title="Java聊天程序" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Pigman/archives/2021/09/">September 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Pigman/2021/09/08/Java%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/">Java聊天程序架构</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Pigman<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Pigman/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Pigman/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/Pigman/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/Pigman/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/Pigman/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
